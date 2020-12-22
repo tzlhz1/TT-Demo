@@ -4,11 +4,13 @@
     "target": "ES6",
     "noImplicitAny": false,
     "sourceMap": false,
+    "lib":["ES2015","ES2016","DOM"],
     "rootDir": "./src",
-    "outDir": "./build",
+    "outDir": "./build/",
     "watch": true
   },
   "include": [
     "./src/**/*"
-  ]
+  ],
+  "files": ["./src/app.ts"]
 }
