@@ -1,7 +1,16 @@
-import * as http from 'http';
+import * as Koa from 'koa';
 
-http.createServer((req,res)=>{
-    res.writeHead(200,{'Content-type':'text/plain'});
-    res.end('hello')
-}).listen(8888)
-console.log('启动1')
+const app = new Koa()
+app.use(async (ctx,next)=>{
+    try {
+        await next()
+    } catch (error) {
+        console.log(error)
+    }
+})
+app.on('error',err=>{
+    console.log(err)
+})
+export default app.listen(3000,()=>{
+    console.log('3000-----')
+})
