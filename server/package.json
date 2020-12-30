@@ -17,6 +17,7 @@
   "dependencies": {
     "@types/koa": "^2.11.6",
     "@types/koa-router": "^7.4.1",
+    "glob": "^7.1.6",
     "koa": "^2.2.0",
     "koa-router": "^10.0.0",
     "loadsh": "0.0.4",

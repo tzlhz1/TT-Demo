@@ -3,7 +3,7 @@ import { Context } from 'koa';
 
 export default class UserController{
     @router.get('/login')
-    login(cxt:Context){
-        cxt.body = 'Hello World';
+    login(ctx:Context){
+        ctx.body = 'Hello World';
     }
 }

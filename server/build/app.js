@@ -5,7 +5,6 @@ const http = require("http");
 const routers_1 = require("./routers");
 const config_1 = require("./config");
 const app = new Koa();
-console.log('Router===>', routers_1.default);
 // 路由
 const router = routers_1.default.init();
 app.use(router.routes()).use(router.allowedMethods());

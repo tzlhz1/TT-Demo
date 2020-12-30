@@ -5,7 +5,6 @@ import Router from './routers';
 import config from './config'
 const app = new Koa()
 
-console.log('Router===>',Router)
 // 路由
 const router = Router.init();
 

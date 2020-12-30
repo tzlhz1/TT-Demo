@@ -7,12 +7,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const router = require("../routers/router_decorator");
-class UserController {
-    login(ctx) {
-        ctx.body = 'Hello World';
+class CommonController {
+    Home(ctx) {
+        ctx.body = 'Home';
     }
 }
 __decorate([
-    router.get('/login')
-], UserController.prototype, "login", null);
-exports.default = UserController;
+    router.all('/')
+], CommonController.prototype, "Home", null);
+exports.default = CommonController;
