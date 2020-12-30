@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ES6",
+    "module": "commonjs",
+    "target": "es2017",
     "noImplicitAny": false,
     "sourceMap": false,
-    "lib":["ES2015","ES2016","DOM"],
+    "lib":["es2017"],
+    "watch": true,
+    "experimentalDecorators": true,
     "rootDir": "./src",
     "outDir": "./build/",
-    "watch": true
   },
   "include": [
     "./src/**/*"

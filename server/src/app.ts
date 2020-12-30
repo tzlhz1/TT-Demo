@@ -1,16 +1,21 @@
 import * as Koa from 'koa';
 
+import * as http from 'http';
+import Router from './routers';
+import config from './config'
 const app = new Koa()
-app.use(async (ctx,next)=>{
-    try {
-        await next()
-    } catch (error) {
-        console.log(error)
-    }
-})
-app.on('error',err=>{
-    console.log(err)
-})
-export default app.listen(3000,()=>{
-    console.log('3000-----')
-})
+
+console.log('Router===>',Router)
+// 路由
+const router = Router.init();
+
+app.use(router.routes()).use(router.allowedMethods());
+
+// create server
+const server = http.createServer(app.callback())
+
+server.listen(config.port)
+
+server.on('listening', () => {
+    console.info('Server is listening on port: %d', config.port);
+});
