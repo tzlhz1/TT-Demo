@@ -11,8 +11,13 @@ class UserController {
     login(ctx) {
         ctx.body = 'Hello World';
     }
+    getUser(ctx) {
+    }
 }
 __decorate([
     router.get('/login')
 ], UserController.prototype, "login", null);
+__decorate([
+    router.get('/getUser')
+], UserController.prototype, "getUser", null);
 exports.default = UserController;

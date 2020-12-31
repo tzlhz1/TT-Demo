@@ -10,7 +10,7 @@ const router = routers_1.default.init();
 app.use(router.routes()).use(router.allowedMethods());
 // create server
 const server = http.createServer(app.callback());
-server.listen(config_1.default.port);
+server.listen(config_1.port);
 server.on('listening', () => {
-    console.info('Server is listening on port: %d', config_1.default.port);
+    console.info('Server is listening on port: %d', config_1.port);
 });

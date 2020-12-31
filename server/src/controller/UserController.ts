@@ -6,4 +6,8 @@ export default class UserController{
     login(ctx:Context){
         ctx.body = 'Hello World';
     }
+    @router.get('/getUser')
+    getUser(ctx:Context){
+        
+    }
 }

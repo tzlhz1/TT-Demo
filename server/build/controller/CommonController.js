@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const router = require("../routers/router_decorator");
 class CommonController {
     Home(ctx) {
-        ctx.body = 'Home';
+        ctx.body = 'home';
     }
 }
 __decorate([
