@@ -7,11 +7,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const router = require("../routers/router_decorator");
+const user_1 = require("../service/user");
+// function con(target, name, descriptor){
+//     console.log(target,name,descriptor)
+// }
 class UserController {
     login(ctx) {
         ctx.body = 'Hello World';
     }
     getUser(ctx) {
+        console.log(ctx.query);
+        console.log(user_1.getUserById(Number(ctx.query.userId)));
     }
 }
 __decorate([

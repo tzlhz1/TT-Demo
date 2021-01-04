@@ -6,13 +6,8 @@ exports.db = {
     username: 'tzlhz1',
     password: 'Zhuo10000..',
     host: '47.106.104.83',
-    port: 3006,
+    port: 3306,
     dialect: 'mysql',
-    pool: {
-        max: 5,
-        min: 0,
-        idle: 1000
-    },
     logging: false
 };
 exports.port = 8002;

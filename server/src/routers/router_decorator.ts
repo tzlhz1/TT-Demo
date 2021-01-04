@@ -29,7 +29,6 @@ function addRouterDecorator(paths: string[], method: string) {
     assert(paths.length > 0, 'paths is empty');
     assert(typeof method === 'string', 'method should be string');
     return (target: any, name: string, descriptor: PropertyDecorator): PropertyDecorator => {
-        
         Router.routerSet.add({
             method: method,
             path: paths.map(p => p.toLowerCase()),

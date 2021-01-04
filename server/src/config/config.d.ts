@@ -1,8 +1,4 @@
-interface Pool{
-    max:number,
-    min:number,
-    idle:number
-}
+
 
 export interface DB{
     database:string,
@@ -11,6 +7,5 @@ export interface DB{
     host:string,
     port:number,
     dialect:string,
-    pool:Pool,
     logging:boolean
 }

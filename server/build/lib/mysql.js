@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.sequelize = void 0;
 const Sequelize = require("sequelize");
 const config_1 = require("../config");
-const sequelize = new Sequelize.Sequelize(config_1.db);
+exports.sequelize = new Sequelize.Sequelize(config_1.db);
 try {
-    sequelize.authenticate().then(res => {
+    exports.sequelize.authenticate().then(res => {
         console.log('连接成功');
     });
 }

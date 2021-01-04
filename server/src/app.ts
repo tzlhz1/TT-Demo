@@ -1,15 +1,17 @@
 import * as Koa from 'koa';
 
 import * as http from 'http';
+import * as koaBodyparser from 'koa-bodyparser'
 import Router from './routers';
 import {port} from './config'
+
 const app = new Koa()
 
 // 路由
 const router = Router.init();
 
+app.use(koaBodyparser())
 app.use(router.routes()).use(router.allowedMethods());
-
 // create server
 const server = http.createServer(app.callback())
 

@@ -1,12 +1,13 @@
 import * as Sequelize from 'sequelize'
 import {db} from '../config'
-const sequelize = new Sequelize.Sequelize(db as any)
 
+export const sequelize = new Sequelize.Sequelize(db as any)
 try {
      sequelize.authenticate().then(res=>{
         console.log('连接成功');
      });
-    
-  } catch (error) {
+} catch (error) {
     console.error('Unable to connect to the database:', error);
-  }
+}
+
+ 
