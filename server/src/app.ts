@@ -4,7 +4,7 @@ import * as http from 'http';
 import * as koaBodyparser from 'koa-bodyparser'
 import Router from './routers';
 import {port} from './config'
-
+ import './lib/mysql'
 const app = new Koa()
 
 // 路由

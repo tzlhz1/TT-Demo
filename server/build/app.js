@@ -5,6 +5,7 @@ const http = require("http");
 const koaBodyparser = require("koa-bodyparser");
 const routers_1 = require("./routers");
 const config_1 = require("./config");
+require("./lib/mysql");
 const app = new Koa();
 // 路由
 const router = routers_1.default.init();

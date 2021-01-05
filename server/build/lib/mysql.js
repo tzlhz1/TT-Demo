@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sequelize = void 0;
-const Sequelize = require("sequelize");
+const sequelize_typescript_1 = require("sequelize-typescript");
 const config_1 = require("../config");
-exports.sequelize = new Sequelize.Sequelize(config_1.db);
+const path = require("path");
+const sequelize = new sequelize_typescript_1.Sequelize(config_1.db);
 try {
-    exports.sequelize.authenticate().then(res => {
+    sequelize.authenticate().then(res => {
         console.log('连接成功');
+        sequelize.addModels([path.resolve(__dirname, '../model/')]); //初始化模型
     });
 }
 catch (error) {

@@ -7,6 +7,7 @@
     "lib":["es2017"],
     "watch": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata":true,
     "rootDir": "./src",
     "outDir": "./build/",
   },

@@ -1,4 +1,6 @@
-
+interface Define{
+    timestamps:boolean
+}
 
 export interface DB{
     database:string,
@@ -7,5 +9,6 @@ export interface DB{
     host:string,
     port:number,
     dialect:string,
-    logging:boolean
+    logging:boolean,
+    define:Define
 }

@@ -8,6 +8,9 @@ exports.db = {
     host: '47.106.104.83',
     port: 3306,
     dialect: 'mysql',
-    logging: false
+    logging: false,
+    define: {
+        timestamps: false
+    }
 };
 exports.port = 8002;

@@ -1,18 +1,15 @@
 import * as router  from '../routers/router_decorator'
 import { Context } from 'koa';
-import {getUserById} from '../service/user'
+import {User} from '../model/User'
 
-// function con(target, name, descriptor){
-//     console.log(target,name,descriptor)
-// }
 export default class UserController{
     @router.get('/login')
     login(ctx:Context){
         ctx.body = 'Hello World';
     }
     @router.get('/getUser')
-    getUser(ctx:Context){
-        console.log(ctx.query)
-        console.log(getUserById(Number(ctx.query.userId)))
+    async getUser(ctx:Context){
+        const res =  await User.getUserById(Number(ctx.query.userId))
+        ctx.response.body = res.dataValues
     }
 }

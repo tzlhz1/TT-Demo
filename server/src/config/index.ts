@@ -8,7 +8,10 @@ export const db:DB = {
     host:'47.106.104.83',
     port:3306,
     dialect:'mysql',
-    logging:false
+    logging:false,
+    define: {
+        timestamps: false
+    }
 }
 
 export const port:number = 8002;
