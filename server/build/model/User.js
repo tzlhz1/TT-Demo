@@ -13,8 +13,11 @@ exports.User = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 let User = class User extends sequelize_typescript_1.Model {
     static async getUserById(userId) {
-        console.log(this.findOne);
         return this.findOne({ where: { userId } });
+    }
+    static async login(userName, passWord) {
+        const user = await this.findOne({ where: { userName, passWord } });
+        return Boolean(user);
     }
 };
 __decorate([

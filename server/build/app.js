@@ -7,9 +7,9 @@ const routers_1 = require("./routers");
 const config_1 = require("./config");
 require("./lib/mysql");
 const app = new Koa();
+app.use(koaBodyparser());
 // 路由
 const router = routers_1.default.init();
-app.use(koaBodyparser());
 app.use(router.routes()).use(router.allowedMethods());
 // create server
 const server = http.createServer(app.callback());

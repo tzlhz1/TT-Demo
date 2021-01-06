@@ -12,8 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const router = require("../routers/router_decorator");
 const User_1 = require("../model/User");
 class UserController {
-    login(ctx) {
-        ctx.body = 'Hello World';
+    async login(ctx, { userName, passWord }) {
+        const state = await User_1.User.login(userName, passWord);
+        let body = {
+            code: 200,
+            data: state,
+            mes: state ? '登陆成功' : '登陆失败'
+        };
+        ctx.body = body;
     }
     async getUser(ctx) {
         const res = await User_1.User.getUserById(Number(ctx.query.userId));
@@ -21,10 +27,10 @@ class UserController {
     }
 }
 __decorate([
-    router.get('/login'),
+    router.post('/login'),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
 ], UserController.prototype, "login", null);
 __decorate([
     router.get('/getUser'),

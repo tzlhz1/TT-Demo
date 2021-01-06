@@ -17,7 +17,10 @@ export class User extends Model<User>{
     passWord:string
 
     static async getUserById(userId:number):Promise<any>{
-        console.log(this.findOne)
         return this.findOne({where:{userId}})
+    }
+    static async login(userName:string,passWord:string):Promise<any>{
+        const user = await this.findOne({where:{userName,passWord}})
+        return Boolean(user)
     }
 }
