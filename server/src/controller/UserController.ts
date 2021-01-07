@@ -9,7 +9,7 @@ export default class UserController{
         let body = {
          code:200,
          data:state,
-         mes:state?'登陆成功':'登陆失败'
+         msg:state?'登陆成功':'登陆失败'
         }
         ctx.body = body
     }
@@ -18,4 +18,12 @@ export default class UserController{
         const res =  await User.getUserById(Number(ctx.query.userId))
         ctx.response.body = res.dataValues
     }
+
+    
+    // @router.get('/user/tripTrend')
+    // async tripTrend(ctx:Context,{userId}){
+    //     const res =  await User.tripTrend(userId)
+    //     ctx.response.body = res.dataValues
+    // }
+
 }

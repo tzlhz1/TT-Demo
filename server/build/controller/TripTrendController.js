@@ -10,32 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const router = require("../routers/router_decorator");
-const User_1 = require("../model/User");
-class UserController {
-    async login(ctx, { userName, passWord }) {
-        const state = await User_1.User.login(userName, passWord);
-        let body = {
-            code: 200,
-            data: state,
-            msg: state ? '登陆成功' : '登陆失败'
-        };
-        ctx.body = body;
-    }
-    async getUser(ctx) {
-        const res = await User_1.User.getUserById(Number(ctx.query.userId));
-        ctx.response.body = res.dataValues;
+const TripTrend_1 = require("../model/TripTrend");
+class TripTrendController {
+    async getTripTrend(ctx, { userId }) {
+        console.log(userId);
+        const res = await TripTrend_1.TripTrend.getTripTrend(userId);
+        console.log('res===>', res);
+        ctx.body = res;
     }
 }
 __decorate([
-    router.post('/login'),
+    router.post('/getTripTrend'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object, Object]),
     __metadata("design:returntype", Promise)
-], UserController.prototype, "login", null);
-__decorate([
-    router.get('/getUser'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Promise)
-], UserController.prototype, "getUser", null);
-exports.default = UserController;
+], TripTrendController.prototype, "getTripTrend", null);
+exports.default = TripTrendController;
