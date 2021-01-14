@@ -11,15 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const router = require("../routers/router_decorator");
 const User_1 = require("../model/User");
+const comon_1 = require("../lib/comon");
 class UserController {
     async login(ctx, { userName, passWord }) {
         const state = await User_1.User.login(userName, passWord);
-        let body = {
-            code: 200,
-            data: state,
-            msg: state ? '登陆成功' : '登陆失败'
-        };
-        ctx.body = body;
+        comon_1.response(ctx, state, state ? '登陆成功' : '登陆失败');
     }
     async getUser(ctx) {
         const res = await User_1.User.getUserById(Number(ctx.query.userId));

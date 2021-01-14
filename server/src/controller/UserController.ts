@@ -1,17 +1,12 @@
 import * as router  from '../routers/router_decorator'
 import { Context } from 'koa';
 import {User} from '../model/User'
-
+import { response} from '../lib/comon'
 export default class UserController{
     @router.post('/login')
     async login(ctx:Context,{userName,passWord}){
         const state = await User.login(userName,passWord)
-        let body = {
-         code:200,
-         data:state,
-         msg:state?'登陆成功':'登陆失败'
-        }
-        ctx.body = body
+        response(ctx,state,state?'登陆成功':'登陆失败')
     }
     @router.get('/getUser')
     async getUser(ctx:Context){
@@ -19,7 +14,7 @@ export default class UserController{
         ctx.response.body = res.dataValues
     }
 
-    
+
     // @router.get('/user/tripTrend')
     // async tripTrend(ctx:Context,{userId}){
     //     const res =  await User.tripTrend(userId)
